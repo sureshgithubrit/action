@@ -9,7 +9,7 @@ jobs:
         steps:
             
             - name: checkout_Repo
-              uses: actions/checkou@v4
+              uses: actions/checkout@v4
 
             - name: welcome message
               run: echo "my first github action job execution"
