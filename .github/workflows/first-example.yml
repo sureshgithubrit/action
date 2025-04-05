@@ -7,6 +7,10 @@ jobs:
         name: job execution testing
         runs-on: ubuntu-latest
         steps:
+            
+            - name: checkout_Repo
+              uses: actions/checkou@v4
+
             - name: welcome message
               run: echo "my first github action job execution"
 
