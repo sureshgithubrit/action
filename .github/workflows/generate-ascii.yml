@@ -12,7 +12,9 @@ jobs:
           run: ls -lrta
         
         - name: execute the script for ascii generation
-          run: ./ascii-script.sh
+          run: |
+            chmod +x ascii-script.sh
+            ./ascii-script.sh
         
         # - name: install cowasy library
         #   run: sudo apt-get install cowsay -y
