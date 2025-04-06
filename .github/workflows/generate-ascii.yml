@@ -7,14 +7,21 @@ jobs:
         steps:
         - name: checkout Repo
           uses: actions/checkout@v4
-        - name: install cowasy library
-          run: sudo apt-get install cowsay -y
-        - name: run the cowasy command
-          run: cowsay -f dragon "Run for cover, I am a DRAGON ....... RAWD" >> dragon.txt
-        - name: list the repo
+        
+        - name: list the root directory
           run: ls -lrta
-        - name: test-file existing
-          run: grep -i "dragon" dragon.txt
-        - name: read the file
-          run: cat dragon.txt
+        
+        - name: execute the script for ascii generation
+          run: ./ascii-script.sh
+        
+        # - name: install cowasy library
+        #   run: sudo apt-get install cowsay -y
+        # - name: run the cowasy command
+        #   run: cowsay -f dragon "Run for cover, I am a DRAGON ....... RAWD" >> dragon.txt
+        # - name: list the repo
+        #   run: ls -lrta
+        # - name: test-file existing
+        #   run: grep -i "dragon" dragon.txt
+        # - name: read the file
+        #   run: cat dragon.txt
 
