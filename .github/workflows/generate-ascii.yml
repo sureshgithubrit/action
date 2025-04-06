@@ -19,6 +19,7 @@ jobs:
           run: sleep 10
         - name: Check the text
           run: grep -i "dragon" dragon.txt
+        needs: Build-job-1
     
     Deploy-Job-3:
         runs-on: ubuntu-latest
@@ -27,6 +28,7 @@ jobs:
           run: cat dragon.txt
         - name: Deploy
           run: echo "Deploying ................"
+        needs: [Build-job-1,Test-Job-2]
 
         
 
