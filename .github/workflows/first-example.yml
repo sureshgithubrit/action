@@ -16,9 +16,11 @@ jobs:
                 echo "my first github action job execution"
                 ls -lrta
                 cat README.md
+            - name: Generate ASCII Network
+              run: cowsay -f dragon "Run for cover, I am a dragon ......... RAWR" >> dragon.txt
 
             # - name: list the current directory
             #   run: ls
             
-            # - name: read the file
+            # - name: read the file 
             #   run: cat README.md
