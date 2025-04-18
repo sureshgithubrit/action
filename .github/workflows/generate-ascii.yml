@@ -11,12 +11,19 @@ jobs:
           run: cowsay -f dragon "I Am A DRAGON...... DRAR" > dragon.txt
         - name: slep for 30s
           run: sleep 30
+        - name: Upload Artifcat
+          uses: actions/upload-artifact@v4
+          with:
+            name: dragon-text-file
+            path: dragon.txt
     
     Test-Job-2:
         runs-on: ubuntu-latest
         steps:
-        - name: sleep for 10 sec
-          run: sleep 10
+        - name: Download Artifcat
+          uses: actions/download-artifact@v4
+          with:
+            name: dragon-text-file
         - name: Check the text
           run: grep -i "dragon" dragon.txt
         needs: Build-job-1
@@ -24,6 +31,10 @@ jobs:
     Deploy-Job-3:
         runs-on: ubuntu-latest
         steps:
+        - name: Download Artifcat
+          uses: actions/download-artifact@v4
+          with:
+            name: dragon-text-file
         - name: Read the text file
           run: cat dragon.txt
         - name: Deploy
